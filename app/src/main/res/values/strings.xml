@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FILMLY</string>
+    <string name="app_desc">Movie List</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="login_button">Login</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="movie_list">Movie List</string>
+</resources>
