@@ -1,5 +1,6 @@
 package com.example.uts.api
 
+import com.example.uts.data.Movie
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

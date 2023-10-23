@@ -7,10 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.uts.data.ReferenceLink
 
 class ProfileFragment : Fragment() {
     private var userName: String? = null
-
+    private val referenceLinks = listOf(
+        ReferenceLink("https://www.youtube.com/watch?v=qAHWVIK7_BY"),
+        ReferenceLink("https://www.youtube.com/watch?v=WbpKInkd0YQ"),
+        ReferenceLink("https://www.youtube.com/watch?v=SD097oVVrPE&t=359s"),
+        ReferenceLink("https://developer.themoviedb.org/reference/movie-popular-list"),
+        ReferenceLink("https://youtu.be/zOsWCAsG2Xo?si=Hmyu2WL4aHcLtLgz"),
+        ReferenceLink("https://youtu.be/qAHWVIK7_BY?si=GcQpbolEFqo1-6mK"),
+        ReferenceLink("https://chat.openai.com/"),
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -29,6 +40,11 @@ class ProfileFragment : Fragment() {
         if (userName != null) {
             profileNameTextView.text = userName
         }
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = ReferenceListAdapter(referenceLinks)
+
 
         return view
     }
