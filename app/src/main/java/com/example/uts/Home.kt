@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
@@ -33,7 +32,7 @@ class Home : AppCompatActivity() {
         tabLayout = findViewById(R.id.tabLayout)
         viewPager2 = findViewById(R.id.viewPager2)
 
-        adapter = PagerAdapter(supportFragmentManager, lifecycle)
+        adapter = PagerAdapter(supportFragmentManager, lifecycle, userName)
 
         tabLayout.addTab(tabLayout.newTab().setText("Movie"))
         tabLayout.addTab(tabLayout.newTab().setText("Profile"))
@@ -69,7 +68,7 @@ class Home : AppCompatActivity() {
         menuInflater.inflate(R.menu.options_menu, menu)
 
         val profileMenuItem = menu?.findItem(R.id.action_profile)
-        profileMenuItem?.title = userName
+        profileMenuItem?.title = "Hi, $userName"
 
         return true
     }

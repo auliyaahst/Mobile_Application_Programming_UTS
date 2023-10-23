@@ -9,10 +9,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 class ProfileFragment : Fragment() {
-
+    private var userName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {
+            userName = it.getString("user_name")
+        }
+        Log.d("ProfileFragment", "userName: $userName")
     }
 
     override fun onCreateView(
@@ -20,25 +24,20 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        val userName = arguments?.getString("user_name")
-
-        Log.d("ProfileFragment", "userName: $userName")
 
         val profileNameTextView = view.findViewById<TextView>(R.id.profile_name)
-        userName?.let {
-            profileNameTextView.text = it
+        if (userName != null) {
+            profileNameTextView.text = userName
         }
 
         return view
     }
 
     companion object {
-        fun newInstance(userName: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString("user_name", userName)
-                }
+        fun newInstance(userName: String?) = ProfileFragment().apply {
+            arguments = Bundle().apply {
+                putString("user_name", userName)
             }
+        }
     }
-
 }

@@ -5,9 +5,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class PagerAdapter (
+class PagerAdapter(
     fragmentManager: FragmentManager,
-    lifecycle: Lifecycle
+    lifecycle: Lifecycle,
+    private val userName: String?
 ): FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {
         return 2
@@ -17,7 +18,9 @@ class PagerAdapter (
         return if (position == 0) {
             MovieFragment()
         } else {
-            ProfileFragment()
+            userName?.let {
+                ProfileFragment.newInstance(it)
+            } ?: ProfileFragment()
         }
     }
 }

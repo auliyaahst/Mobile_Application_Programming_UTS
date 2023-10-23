@@ -6,4 +6,6 @@
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
     <string name="movie_list">Movie List</string>
+    <string name="api_response">API Response: %s</string>
+    <string name="user_tab">Hi, </string>
 </resources>

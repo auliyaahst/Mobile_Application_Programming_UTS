@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, Home::class.java)
                 intent.putExtra("user_name", name)
+                val profileIntent = ProfileFragment.newInstance(name)
                 startActivity(intent)
                 finish()
             }
