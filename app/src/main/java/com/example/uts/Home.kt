@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
@@ -69,7 +70,6 @@ class Home : AppCompatActivity() {
 
         val profileMenuItem = menu?.findItem(R.id.action_profile)
         profileMenuItem?.title = "Hi, $userName"
-
         return true
     }
 
